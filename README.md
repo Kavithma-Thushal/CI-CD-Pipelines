@@ -1,4 +1,4 @@
-CI/CD Pipeline using ECR, GitHub, ECS, CodePipeline, and Load Balancer.
+CI/CD Pipeline using ECR, GitHub, ECS, CodePipeline, and Load Balancer
 
 # Step 1: Create Required Repositories in ECR
 
