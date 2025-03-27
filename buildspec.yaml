@@ -6,13 +6,13 @@ phases:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 515966515062.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
-      - docker build -t ijse-repository .
-      - docker tag ijse-repository:latest 515966515062.dkr.ecr.ap-south-1.amazonaws.com/ijse-repository:latest
+      - docker build -t demo .
+      - docker tag demo:latest 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
   post_build:
     commands:
-      - docker push 515966515062.dkr.ecr.ap-south-1.amazonaws.com/ijse-repository:latest
+      - docker push 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"ijse-repository","imageUri":"%s"}]' 515966515062.dkr.ecr.ap-south-1.amazonaws.com/ijse-repository:latest > imagedefinitions.json
+      - printf '[{"name":"demo","imageUri":"%s"}]' 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo:latest > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
