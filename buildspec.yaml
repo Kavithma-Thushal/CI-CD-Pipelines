@@ -6,13 +6,13 @@ phases:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 515966515062.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
-      - docker build -t demo2 .
-      - docker tag demo2:latest 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo2:latest
+      - docker build -t demo .
+      - docker tag demo:latest 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
   post_build:
     commands:
-      - docker push 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo2:latest
+      - docker push 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"demo2","imageUri":"%s"}]' 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo2:latest > imagedefinitions.json
+      - printf '[{"name":"demo","imageUri":"%s"}]' 515966515062.dkr.ecr.ap-south-1.amazonaws.com/demo:latest > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
