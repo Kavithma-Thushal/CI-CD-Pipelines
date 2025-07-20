@@ -1,5 +1,9 @@
 CI/CD Pipeline using ECR, GitHub, ECS, CodePipeline, and Load Balancer
 
+## Build Docker Image = `docker build -t demo .`
+
+## Run Docker Image = `docker run -p 80:80 demo`
+
 # Step 1: Create Required Repositories in ECR
 
 Install AWS CLI: Download and install the AWS CLI from <https://aws.amazon.com/cli/>.
